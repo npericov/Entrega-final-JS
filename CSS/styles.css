@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+nav{
+    background-color: #E1E1E5;
+}
+header img{
+    width: 120px;
+    margin: auto;      
+}
+
+h1 {
+    color: #0eafa7;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin: 1rem auto;
+
+}
+
+h6 {
+    color: #787c7c;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.container-products {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 4rem 8rem;
+    gap: 10px;
+  }
+
+.cardProduct{
+    min-width: 320px;
+    width: 20%;
+    background-color: #787c7c;
+    box-shadow: #787c7c;
+    margin: 20px;
+}
+
+.imgProduct{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.card-title {
+    color:#ffff;
+    font-family: 'Montserrat', sans-serif;
+}
+.card-text {
+    color:#ffff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
