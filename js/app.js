@@ -96,7 +96,7 @@ document.addEventListener('click', (event) => {
     }
 }); //ok//
 
- //función agregar al carrito//
+ //Agregar al carrito//
 const productosAgregados = [];
 
 if (localStorage.getItem('Products-card')){
@@ -112,9 +112,9 @@ function agregarCarrito(id){
     if(polerasAgregadas && !productosAgregados.some((item) => item.id === id)){
         
         const btnAdd = document.getElementById(`add-${id}`);
-        btnAdd.innerHTML = 'Agregado'; //Cambia el texto interior
+        btnAdd.innerHTML = 'Agregado'; 
         
-        btnAdd.disabled = true; //Deshabilita el botón
+        btnAdd.disabled = true; 
         
         productosAgregados.push(polerasAgregadas);
         localStorage.setItem('Products-card', JSON.stringify(productosAgregados));
@@ -201,4 +201,96 @@ function deletePolera(id) {
         ActivarBoton();
     }
 }
+
+//Iniciar sesión//
+document.body.insertBefore(welcomeMessage, form);
+
+const cerrarSesionBtn = document.createElement('button');
+cerrarSesionBtn.textContent = 'Cerrar Sesión';
+cerrarSesionBtn.addEventListener('click', () => {
+    localStorage.removeItem('user');
+    welcomeMessage.textContent = ''; // Limpia el mensaje de bienvenida
+    form.style.display = 'block'; // Muestra el formulario
+});
+
+document.getElementById("iniciarSesion")
+.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const btnForm = document.getElementById("btnForm");
+    btnForm.textContent = 'Iniciando Sesión';
+
+    login(username, password)
+        .then((res) => {
+            console.log(res);
+            btnForm.textContent = 'Cerrar Sesión';
+            welcome(username);
+        })
+        .catch((error) => {
+            console.log(error);
+            btnForm.textContent = 'Iniciar Sesión'; 
+        });
+});
+
+const login = (username, password) => {
+    return new Promise((resolve, reject) => {
+        
+        const usuarios = [
+            { username: 'admin', password: 'admin' },
+           
+        ];
+
+        setTimeout(() => {
+            const cliente = usuarios.find(user => user.username === username && user.password === password);
+
+            if (cliente) {
+                console.log('Bienvenido:', cliente);
+                localStorage.setItem('user', JSON.stringify(cliente.username));
+                resolve(cliente);
+            } else {
+                console.log('Usuario no encontrado.');
+                reject('Usuario no encontrado.');
+            }
+        }, 2000);
+    });
+
+    
+};
+
+const welcome = (username) => {
+    const form = document.getElementById("iniciarSesion");
+    form.style.display = 'none'; 
+
+    const welcomeMessage = document.createElement('p');
+    welcomeMessage.textContent = `¡Bienvenido, ${username}!`;
+
+    document.body.insertBefore(cerrarSesionBtn, form.nextSibling);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
