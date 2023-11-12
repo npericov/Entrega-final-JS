@@ -43,9 +43,24 @@ const Catalogo = [
         description:'Polera de algodón',
         price:'$10000 + IVA',
     },
+    {
+        id: '7',
+        producto: 'Polera Rosada',
+        imagen:'https://images.unsplash.com/photo-1502765281178-656f7e7d300f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        description:'Polera de algodón',
+        price:'$10000 + IVA',
+    },
+    {
+        id: '8',
+        producto: 'Polera Azul',
+        imagen:'https://plus.unsplash.com/premium_photo-1663127154672-b26540eca238?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        description:'Polera de algodón',
+        price:'$10000 + IVA',
+    },
 ]
 
 // Creación del contenedor de productos
+
 const container = document.querySelector('.container-products');
 
 for (const polera of Catalogo) {
@@ -57,26 +72,40 @@ for (const polera of Catalogo) {
             <p class="card-text">${polera.description}</p>
             <p class="card-text">${polera.price}</p>
             <div class="list-group">
-                <button type="button" class="btn btn-dark list-group-item" onclick= "agregarCarrito('${polera.id}')" id="add-${polera.id}">Agregar al carrito</button>
+                <button type="button" class="btn btn-dark list-group-item"  onclick= "agregarCarrito('${polera.id}')" id="add-${polera.id}">Agregar al carrito</button>
             </div>
         </div>
-    </div>`;}  //ok//
+    </div>`; //ok//
+}  
+// Agrega evento clic al botón
+document.addEventListener('click', (event) => {
+    const buttonId = event.target.id;
 
-        //Alert//
-    
+    if (buttonId.startsWith('add-')) {
+        const poleraId = buttonId.split('-')[1];
+        agregarCarrito(poleraId);
+        
+// Muestra el alert de SweetAlert2
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Producto agregado al carrito",
+            showConfirmButton: false,
+            timer: 1200
+        });
+    }
+}); //ok//
 
-
-
-    //función agregar al carrito//
+ //función agregar al carrito//
 const productosAgregados = [];
 
 if (localStorage.getItem('Products-card')){
     productosAgregados = JSON.parse(localStorage.getItem('Products-card'));
 
-    /*updateButtonState();*/
+    ActivarBoton();
     showProducts();
 }
-//----------- AGREGAR A LA LISTA    
+// Agregar productos al carrito//   
 function agregarCarrito(id){
     const polerasAgregadas = Catalogo.find((polera) => polera.id === id);
 
@@ -92,16 +121,15 @@ function agregarCarrito(id){
         console.log(productosAgregados);
 
         showProducts();
-
-
+        ActivarBoton();
     }
 }
-        /*updateButtonState();
-        showSuccessToast(`El libro "${lectures.title}" fué agregado a tu lista.`);*/
+        
 
 
 
-    //función ver productos en carrito//
+
+//función ver productos en carrito//
 function showProducts() {
     const productElement = document.querySelector('.productslist'); //agregar clase de html , para ver los productos seleccionados en el carrito lateral.//
     productElement.innerHTML = '';
@@ -110,13 +138,14 @@ function showProducts() {
         const ProductItem = document.createElement('div');
         ProductItem.classList.add('carrito-item');
         ProductItem.innerHTML = `
-        <div id=${item.id} class="card-productslist">
-        <img src=${item.imagen} alt="Foto referencial ${item.producto}" class="productslist-thumbnail">
+        <div id=${item.id} class="cardContainer-productslist">
+        <img src=${item.imagen} alt="Foto referencial ${item.producto}" class="productslist-imgCard">
         <div class="card-body">
-            <h4 class="card-title">${item.producto}</h4>
-            <p class="card-text">${item.description}</p>
+            <h4 class="cardTitle">${item.producto}</h4>
+            <p class="cardText">${item.description}</p>
+            <p class="cardText">${item.price}</p>
             <div class="list-group">
-            <button class="btn btn-outline-warning delete-button" data-id=${item.id}><i class="fa-solid fa-trash"></i> Borrar del carrito</button>
+                <button class="btn btn-outline-danger delete-button" data-id=${item.id}><i class="fa-solid fa-trash"></i> Borrar del carrito</button>
             </div>
         </div>
     </div>
@@ -128,14 +157,26 @@ function showProducts() {
         });
 
         productElement.appendChild(ProductItem);
-
     })
+}
+showProducts();
+ActivarBoton();
 
+//Activar boton de la card
+function ActivarBoton() {
+    Catalogo.forEach((polera) => {
+        const btnAdd = document.getElementById(`add-${polera.id}`);
+        if (productosAgregados.some((item) => item.id === polera.id)) {
+            btnAdd.innerHTML = 'Agregado';
+            btnAdd.disabled = true; 
+        } else {
+            btnAdd.innerHTML = 'Agregar al carrito';
+            btnAdd.disabled = false; 
+        }
+    });
 }
 
-showProducts();
-
-//----------- BORRAR DE LA LISTA
+//borrar productos del carrito//
 const BorrarProduct = document.querySelector('.productslist');
 BorrarProduct.addEventListener('click', function (e) {
     if (e.target && e.target.classList.contains('delete-button')) {
@@ -157,7 +198,7 @@ function deletePolera(id) {
         }
 
         showProducts();
-        /*updateButtonState();*/
+        ActivarBoton();
     }
 }
 

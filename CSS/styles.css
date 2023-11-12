@@ -23,7 +23,7 @@ h6 {
     color: #787c7c;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-    margin-top: 1rem;
+    margin: 1rem;
 }
 
 .container-products {
@@ -31,7 +31,7 @@ h6 {
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    margin: 4rem 8rem;
+    margin: 2rem 8rem;
     gap: 10px;
   }
 
@@ -58,5 +58,50 @@ h6 {
     font-family: 'Montserrat', sans-serif;
 }
 
+.btnshow{
+    color: #0eafa7;
+}
+
+.TitleCarrito{
+    color: #0eafa7;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.carrito-item{
+    width: 10rem;
+    margin: auto;
+}
 
 
+.cardContainer-productslist{
+    width: 10rem;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    
+}
+
+img.productslist-imgCard{
+    width: 10rem;
+    margin : auto;
+    text-align: center;
+
+}
+
+h4.cardTitle{
+    color: #787c7c;
+    text-align: center;
+    margin: 8px 0px;
+
+}
+
+p.cardText{
+    color: #787c7c;
+    text-align: center;
+    margin: 0px 0px 8px;
+
+}
