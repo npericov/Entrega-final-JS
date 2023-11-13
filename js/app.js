@@ -203,30 +203,21 @@ function deletePolera(id) {
 }
 
 //Iniciar sesión//
-document.body.insertBefore(welcomeMessage, form);
 
-const cerrarSesionBtn = document.createElement('button');
-cerrarSesionBtn.textContent = 'Cerrar Sesión';
-cerrarSesionBtn.addEventListener('click', () => {
-    localStorage.removeItem('user');
-    welcomeMessage.textContent = ''; // Limpia el mensaje de bienvenida
-    form.style.display = 'block'; // Muestra el formulario
-});
-
-document.getElementById("iniciarSesion")
-.addEventListener("submit", (event) => {
+document.getElementById("iniciarSesion").addEventListener("submit", (event) => {
     event.preventDefault();
 
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
     const btnForm = document.getElementById("btnForm");
+
     btnForm.textContent = 'Iniciando Sesión';
 
     login(username, password)
         .then((res) => {
             console.log(res);
             btnForm.textContent = 'Cerrar Sesión';
-            welcome(username);
+            welcome(username, btnForm);
         })
         .catch((error) => {
             console.log(error);
@@ -236,10 +227,9 @@ document.getElementById("iniciarSesion")
 
 const login = (username, password) => {
     return new Promise((resolve, reject) => {
-        
+        // Simulación de verificación de usuario
         const usuarios = [
             { username: 'admin', password: 'admin' },
-           
         ];
 
         setTimeout(() => {
@@ -255,42 +245,20 @@ const login = (username, password) => {
             }
         }, 2000);
     });
-
-    
 };
 
-const welcome = (username) => {
-    const form = document.getElementById("iniciarSesion");
-    form.style.display = 'none'; 
+const welcome = (username, btnForm) => {
+    const mensajeBienvenida = document.getElementById('mensajeBienvenida');
+    mensajeBienvenida.innerHTML = `¡Bienvenido, ${username}!`;
 
-    const welcomeMessage = document.createElement('p');
-    welcomeMessage.textContent = `¡Bienvenido, ${username}!`;
+    const cerrarSesionBtn = document.createElement('button');
+    cerrarSesionBtn.textContent = 'Cerrar Sesión';
+    cerrarSesionBtn.addEventListener('click', () => {
+        localStorage.removeItem('user');
+        mensajeBienvenida.innerHTML = ''; 
+        btnForm.textContent = 'Iniciar Sesión'; 
+        cerrarSesionBtn.remove(); 
+    });
 
-    document.body.insertBefore(cerrarSesionBtn, form.nextSibling);
+    document.body.appendChild(cerrarSesionBtn);
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
