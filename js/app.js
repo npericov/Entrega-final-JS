@@ -225,7 +225,7 @@ document.getElementById("iniciarSesion").addEventListener("submit", (event) => {
 
 const login = (username, password) => {
     return new Promise((resolve, reject) => {
-        // Simulación de verificación de usuario
+
         const usuarios = [
             { username: 'admin', password: 'admin' },
         ];
@@ -270,10 +270,10 @@ const welcome = (username, btnForm) => {
     const mensajeBienvenida = document.getElementById('mensajeBienvenida');
     mensajeBienvenida.innerHTML = `¡Bienvenido, ${username}!`;
 
-    // Oculta los campos de inicio de sesión
+
     document.getElementById('iniciarSesion').style.display = 'none';
 
-    // Muestra el botón de cerrar sesión al lado del mensaje de bienvenida
+
     const cerrarSesionBtn = document.createElement('button');
     cerrarSesionBtn.textContent = 'Cerrar Sesión';
     cerrarSesionBtn.addEventListener('click', () => {
@@ -282,11 +282,11 @@ const welcome = (username, btnForm) => {
         btnForm.textContent = 'Iniciar Sesión'; 
         cerrarSesionBtn.remove(); 
 
-        // Muestra nuevamente los campos de inicio de sesión cuando se cierra la sesión
+
         document.getElementById('iniciarSesion').style.display = 'block';
     });
 
-    // Agrega el botón de cerrar sesión al lado del mensaje de bienvenida
+
     mensajeBienvenida.appendChild(cerrarSesionBtn);
 };
 
