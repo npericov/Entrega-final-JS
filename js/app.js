@@ -50,44 +50,6 @@ document.addEventListener('click', (event) => {
     }
 });
 
-
-
-
-/*const container = document.querySelector('.container-products');
-
-for (const polera of Catalogo) {
-    container.innerHTML += `
-    <div id=${polera.id} class="card cardProduct">
-        <img src=${polera.imagen} alt="Foto polera ${polera.producto}" class="imgProduct">
-        <div class="card-body">
-            <h4 class="card-title">${polera.producto}</h4>
-            <p class="card-text">${polera.description}</p>
-            <p class="card-text">${polera.price}</p>
-            <div class="list-group">
-                <button type="button" class="btn btn-dark list-group-item"  onclick= "agregarCarrito('${polera.id}')" id="add-${polera.id}">Agregar al carrito</button>
-            </div>
-        </div>
-    </div>`; //ok//
-}  */
-// Agrega evento clic al botón
-/*document.addEventListener('click', (event) => {
-    const buttonId = event.target.id;
-
-    if (buttonId.startsWith('add-')) {
-        const poleraId = buttonId.split('-')[1];
-        agregarCarrito(poleraId);
-        
-// Muestra el alert de SweetAlert2
-        Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Producto agregado al carrito",
-            showConfirmButton: false,
-            timer: 1200
-        });
-    }
-});*/ //ok//
-
  //Agregar al carrito//
 let productosAgregados = [];
 
