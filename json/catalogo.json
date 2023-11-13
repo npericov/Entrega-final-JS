@@ -1,0 +1,59 @@
+[
+    {
+    "id": "1",
+    "producto": "Polera Blanca",
+    "imagen": "https://plus.unsplash.com/premium_photo-1682096340835-022e6647b698?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "description": "Polera de algodón",
+    "price": "$10000 + IVA"
+    },
+    {
+    "id": "2",
+    "producto": "Polera Negra",
+    "imagen": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "description": "Polera de algodón",
+    "price": "$10000 + IVA"
+    },
+    {
+    "id": "3",
+    "producto": "Polera Roja",
+    "imagen": "https://images.unsplash.com/photo-1619735007512-34004ec2f348?auto=format&fit=crop&q=80&w=2071&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "description": "Polera de algodón",
+    "price": "$12000 + IVA"
+    },
+    {
+    "id": "4",
+    "producto": "Polera Gris",
+    "imagen": "https://images.unsplash.com/photo-1529429649738-cf96fc78378b?auto=format&fit=crop&q=80&w=1776&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "description": "Polera de algodón",
+    "price": "$14000 + IVA"
+    },
+    {
+    "id": "5",
+    "producto": "Polera Amarilla",
+    "imagen": "https://plus.unsplash.com/premium_photo-1693161217771-fe5476a38014?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "description": "Polera de algodón",
+    "price": "$13000 + IVA"
+    },
+    {
+    "id": "6",
+    "producto": "Polera Verde",
+    "imagen": "https://plus.unsplash.com/premium_photo-1690347838523-d35c74ccefb0?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D7771-fe5476a38014?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "description": "Polera de algodón",
+    "price": "$10000 + IVA"
+    },
+    {
+    "id": "7",
+    "producto": "Polera Rosada",
+    "imagen": "https://images.unsplash.com/photo-1502765281178-656f7e7d300f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "description": "Polera de algodón",
+    "price": "$10000 + IVA"
+    },
+    {
+    "id": "8",
+    "producto": "Polera Azul",
+    "imagen": "https://plus.unsplash.com/premium_photo-1663127154672-b26540eca238?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "description": "Polera de algodón",
+    "price": "$10000 + IVA"
+    }
+    ]
+  
